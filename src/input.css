@@ -1,0 +1,77 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-sahel: "sahel";
+    --font-sahel-light: "sahel light";
+    --font-sahel-semibold: "sahel semiBold"; 
+    --font-sahel-bold: "sahel bold"; 
+}
+
+@layer base{
+    @font-face {
+        font-family: 'sahel light';
+        src: url('../fonts/sahel/Sahel-Light-FD.woff2') format("woff2");
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'sahel';
+        src: url('../fonts/sahel/Sahel-FD.woff2') format("woff2");
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'sahel semiBold';
+        src: url('../fonts/sahel/Sahel-SemiBold-FD.woff2') format("woff2");
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'sahel bold';
+        src: url('../fonts/sahel/Sahel-Bold-FD.woff2') format("woff2");
+        font-display: swap;
+    }
+
+
+}
+
+@custom-variant child "& > *";
+@custom-variant child-hover "& > *:hover";
+
+@layer utilities{
+    .my_container{
+        @apply w-9/10 mx-auto;
+    }
+
+    .bg_gradient_orange:hover{
+        @apply bg-gradient-to-r from-[#FF8904] to-[#FF6900];
+    }
+
+    .bg_gradient_orange_main{
+        @apply bg-gradient-to-r from-[#FF8904] to-[#FF6900];
+    }
+
+    nav a.active{
+        @apply text-orange-500;
+    }
+
+    nav a.active::after{
+        @apply content-[''] w-full h-1 bg-red-600 absolute -bottom-7.5 translate-y-0.5 rounded-full bg-gradient-to-r from-[#FF8904] to-[#FF6900];
+    }
+
+
+}
+
+@layer components{
+    .mobile_sub_menu{
+        @apply ms-5 bg-neutral-50 dark:bg-neutral-700 dark:text-white py-2.5 px-4 rounded-2xl mt-3 child:text-lg child:py-[5px] divide-y divide-white dark:divide-neutral-500
+    }
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* مخفی کردن اسکرول‌بار در مرورگرهای مبتنی بر Webkit مثل کروم و سافاری */
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* مخفی کردن اسکرول‌بار در اینترنت اکسپلورر و اج */
+  scrollbar-width: none; /* مخفی کردن اسکرول‌بار در فایرفاکس */
+}
+
